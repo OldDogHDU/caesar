@@ -21,7 +21,12 @@ for($i=0;$i<strlen($content);$i++)
 	}
 	else
 	{
-		$content[$i]=chr(33+(ord($content[$i])-33-$key%32+32)%32);
+		for($j=0;$j<32;$j++)
+			if($content[$i]==$zifu[$j])
+			{
+				$k=($j-$key%32+32)%32;
+			}
+		$content[$i]=$zifu[$k];
 	}
 }
 echo $content;
